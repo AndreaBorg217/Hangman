@@ -20612,7 +20612,7 @@ const Hangman = () => {
             }
         }
         else{
-            Vibration.vibrate(2, false);
+            Vibration.vibrate(400, false);
         }}
     }
 
