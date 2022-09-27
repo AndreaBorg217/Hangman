@@ -1,5 +1,4 @@
 # Hangman
-# Weather
 ### An implementation of Hangman as it would be played using pen & paper
 <p align="center">
   <img src="Screenshots\Screenshot_1661506168.png" width="350" >
