@@ -42,32 +42,32 @@ var loss = new Sound('loss.mp3', Sound.MAIN_BUNDLE, error => {
 
 const Hangman = () => {
  const [keyboard, setKeyboard] = useState([
-    {index: 0, char: 'a', background: 'white', border: 'black', text: 'black'},
-    {index: 1, char: 'b', background: 'white', border: 'black', text: 'black'},
-    {index: 2, char: 'c', background: 'white', border: 'black', text: 'black'},
-    {index: 3, char: 'd', background: 'white', border: 'black', text: 'black'},
-    {index: 4, char: 'e', background: 'white', border: 'black', text: 'black'},
-    {index: 5, char: 'f', background: 'white', border: 'black', text: 'black'},
-    {index: 6, char: 'g', background: 'white', border: 'black', text: 'black'},
-    {index: 7, char: 'h', background: 'white', border: 'black', text: 'black'},
-    {index: 8, char: 'i', background: 'white', border: 'black', text: 'black'},
-    {index: 9, char: 'j', background: 'white', border: 'black', text: 'black'},
-    {index: 10, char: 'k', background: 'white', border: 'black', text: 'black'},
-    {index: 11, char: 'l', background: 'white', border: 'black', text: 'black'},
-    {index: 12, char: 'm', background: 'white', border: 'black', text: 'black'},
-    {index: 13, char: 'n', background: 'white', border: 'black', text: 'black'},
-    {index: 14, char: 'o', background: 'white', border: 'black', text: 'black'},
-    {index: 15, char: 'p', background: 'white', border: 'black', text: 'black'},
-    {index: 16, char: 'q', background: 'white', border: 'black', text: 'black'},
-    {index: 17, char: 'r', background: 'white', border: 'black', text: 'black'},
-    {index: 18, char: 's', background: 'white', border: 'black', text: 'black'},
-    {index: 19, char: 't', background: 'white', border: 'black', text: 'black'},
-    {index: 19, char: 'u', background: 'white', border: 'black', text: 'black'},
-    {index: 20, char: 'v', background: 'white', border: 'black', text: 'black'},
-    {index: 21, char: 'w', background: 'white', border: 'black', text: 'black'},
-    {index: 22, char: 'x', background: 'white', border: 'black', text: 'black'},
-    {index: 23, char: 'y', background: 'white', border: 'black', text: 'black'},
-    {index: 24, char: 'z', background: 'white', border: 'black', text: 'black'},
+    {char: 'a', background: 'white', border: 'black', text: 'black'},
+    {char: 'b', background: 'white', border: 'black', text: 'black'},
+    {char: 'c', background: 'white', border: 'black', text: 'black'},
+    {char: 'd', background: 'white', border: 'black', text: 'black'},
+    {char: 'e', background: 'white', border: 'black', text: 'black'},
+    {char: 'f', background: 'white', border: 'black', text: 'black'},
+    {char: 'g', background: 'white', border: 'black', text: 'black'},
+    {char: 'h', background: 'white', border: 'black', text: 'black'},
+    {char: 'i', background: 'white', border: 'black', text: 'black'},
+    {char: 'j', background: 'white', border: 'black', text: 'black'},
+    {char: 'k', background: 'white', border: 'black', text: 'black'},
+    {char: 'l', background: 'white', border: 'black', text: 'black'},
+    {char: 'm', background: 'white', border: 'black', text: 'black'},
+    {char: 'n', background: 'white', border: 'black', text: 'black'},
+    {char: 'o', background: 'white', border: 'black', text: 'black'},
+    {char: 'p', background: 'white', border: 'black', text: 'black'},
+    {char: 'q', background: 'white', border: 'black', text: 'black'},
+    {char: 'r', background: 'white', border: 'black', text: 'black'},
+    {char: 's', background: 'white', border: 'black', text: 'black'},
+    {char: 't', background: 'white', border: 'black', text: 'black'},
+    {char: 'u', background: 'white', border: 'black', text: 'black'},
+    {char: 'v', background: 'white', border: 'black', text: 'black'},
+    {char: 'w', background: 'white', border: 'black', text: 'black'},
+    {char: 'x', background: 'white', border: 'black', text: 'black'},
+    {char: 'y', background: 'white', border: 'black', text: 'black'},
+    {char: 'z', background: 'white', border: 'black', text: 'black'},
 ]);
 
     const [toGuess, setWord] = useState(randomWord());
@@ -181,7 +181,7 @@ const Hangman = () => {
                             
                             tempWord = toGuess;
                             tempWord.replace(tempWord.charAt(character), '_');
-                            
+                            console.log(index)
                             tempKeyBoard = [...keyboard]
                             tempKeyBoard[index].background = 'green';
                             tempKeyBoard[index].border = 'black';
@@ -197,7 +197,7 @@ const Hangman = () => {
                 incorrect.setVolume(1);
                 incorrect.setSpeed(2)
                 incorrect.play();
-
+                console.log(index)
                 let temp = [...keyboard]
                 temp[index].background = 'red';
                 temp[index].border = 'black';
@@ -344,20 +344,20 @@ const WinModal = () =>{
     </View>
     <View style = {styles.blankContainer}>
        <FlatList 
-                style = {styles.blank}
-                data={blank}
-                renderItem= {({item}) => <Text style = {styles.blankSpace}>{item}</Text>}
-                keyExtractor={(item, index) => index}
-                numColumns = {length}
-                key = {length}
+        style = {styles.blank}
+        data={blank}
+        renderItem= {({item}) => <Text style = {styles.blankSpace}>{item}</Text>}
+        keyExtractor={(item, index) => index}
+        numColumns = {length}
+        key = {length}
         />
     </View>
 
   <FlatList 
         contentContainerStyle = {styles.keyboard}
         data={keyboard}
-        renderItem= {({item}) => <Key letter={item.char} background={item.background} border={item.border} textColor={item.text} index = {item.index}/>}
-        keyExtractor={(item) => item.index}
+        renderItem= {({item, index}) => <Key letter={item.char} background={item.background} border={item.border} textColor={item.text} index = {index}/>}
+        keyExtractor={(item, index) => index}
         numColumns = {6}
     />
     </ImageBackground>
